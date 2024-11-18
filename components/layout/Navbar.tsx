@@ -1,10 +1,11 @@
 "use client";
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, ShoppingCart, Wallet, Wallet2Icon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { ModeToggle } from "../ModeToggle";
-import { Input } from "../ui/input";
+import { Input } from "@/components/ui/Input";
 import { usePathname } from "next/navigation";
+import { NavigationMenu } from "../ui/navigation-menu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,11 +14,14 @@ const Navbar = () => {
   const menuItemsExplore = [
     {
       label: "NFTs",
-      props: { onClick: () => console.log("Action 1 clicked") },
+      props: { onClick: () => console.log("Action 1 clicked"), href: "/nfts" },
     },
     {
       label: "Collections",
-      props: { onClick: () => console.log("Action 2 clicked") },
+      props: {
+        onClick: () => console.log("Action 2 clicked"),
+        href: "/collections",
+      },
     },
   ];
 
@@ -32,14 +36,14 @@ const Navbar = () => {
     },
   ];
   return (
-    <nav className="bg-background text-foreground w-full border-b">
-      <div className="max-w-full mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between h-16">
+    <nav className="fixed w-full border-b bg-background text-foreground">
+      <div className="mx-auto max-w-full px-2 sm:px-6 lg:px-8">
+        <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* Mobile menu button*/}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               aria-controls="mobile-menu"
               aria-expanded="false"
             >
@@ -51,25 +55,30 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link href="/">MyApp</Link>
           </div>
-          <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
+          <div className="hidden items-center justify-center font-semibold sm:flex sm:flex-1 sm:items-stretch sm:justify-between">
             <Input
               placeholder="Search items, collections and account"
-              className="w-[350px] ml-10"
+              className="ml-10 hidden w-full max-w-[480px] md:block"
             />
 
-            <div className="hidden sm:flex sm:items-center sm:ml-6">
-              <div className="flex space-x-4">
-                <Link href="/create" className="text-primary">
+            <div className="hidden sm:ml-6 sm:flex sm:items-center">
+              <div className="flex space-x-8">
+                <Link href="/create" className="hover:text-primary">
                   Create
                 </Link>
-                <Link href="/about">Explore</Link>
-                <Link href="/">Ranking</Link>
-                <Link href="/contact">Ranking</Link>
+
+                <NavigationMenu href="/explore" menuItems={menuItemsExplore}>
+                  Explore
+                </NavigationMenu>
+
+                <Link href="/" className="hover:text-primary">
+                  Ranking
+                </Link>
+                <Link href="/contact">Ether</Link>
+                <ModeToggle />
+                <ShoppingCart />
+                <Wallet />
               </div>
-            </div>
-            <div className="flex items-center gap-x-2">
-              <ModeToggle />
-              <Link href="/login">Login</Link>
             </div>
           </div>
         </div>
@@ -80,7 +89,7 @@ const Navbar = () => {
         className={`${isOpen ? "block" : "hidden"} sm:hidden`}
         id="mobile-menu"
       >
-        <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="space-y-1 px-2 pb-3 pt-2">
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
