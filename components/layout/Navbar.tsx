@@ -6,6 +6,7 @@ import { ModeToggle } from "../ModeToggle";
 import { Input } from "@/components/ui/Input";
 import { usePathname } from "next/navigation";
 import { NavigationMenu } from "../ui/navigation-menu";
+import ConnectWalletButton from "../auth/ConnectWalletButton";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -77,7 +78,9 @@ const Navbar = () => {
                 <Link href="/contact">Ether</Link>
                 <ModeToggle />
                 <ShoppingCart />
-                <Wallet />
+                
+                <ConnectWalletButton />
+                <appkit-button />
               </div>
             </div>
           </div>
