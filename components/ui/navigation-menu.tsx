@@ -20,7 +20,7 @@ const NavigationMenu = ({ menuItems, href, children }: NavigationMenuProps) => {
         <div className="rounded-md border bg-popover px-4 py-2 shadow-lg">
           {menuItems.map((item, index) => (
             <Link
-              className="block w-full px-4 py-2 text-left text-sm hover:bg-accent hover:transition-all"
+              className="block w-full rounded px-4 py-2 text-left text-sm hover:bg-accent hover:transition-all"
               href={item.props.href}
               key={index}
               {...item.props}
