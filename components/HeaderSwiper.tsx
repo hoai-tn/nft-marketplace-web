@@ -41,13 +41,13 @@ export default function HeaderSwiper() {
                   alt="Element Pass Genesis"
                   className="h-full w-full rounded-lg"
                 />
-                <div className="bg-gradient absolute bottom-0 left-0 flex w-full items-center gap-x-2 p-4">
+                <div className="absolute bottom-0 left-0 flex w-full items-center gap-x-2 p-4">
                   <img
                     src="https://s.nfte.so/asset/collection/featured/feeecf10-da93-4d16-8320-ba1f1b272e1b.jpeg"
                     alt=""
                     className="h-12 w-12 rounded-lg"
                   />
-                  <p className="text-2xl">Honey Bastarnds</p>
+                  <p className="bg-gradient text-2xl">Honey Bastarnds</p>
                 </div>
               </div>
             </div>
