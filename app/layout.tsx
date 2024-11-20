@@ -5,6 +5,9 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "./theme-provider";
 import Link from "next/link";
+import AppkitContextProvider from "@/context/appkit";
+
+import { headers } from "next/headers"; // added
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,6 +30,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookies = headers().get("cookie");
   return (
     <html lang="en">
       <body>
@@ -36,22 +40,24 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              {children}
-            </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                className="flex items-center gap-1 text-current"
-                href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-                title="nextui.org homepage"
-              >
-                <span className="text-default-600">Powered by</span>
-                <p className="text-primary">NextUI</p>
-              </Link>
-            </footer>
-          </div>
+          <AppkitContextProvider cookies={cookies}>
+            <div className="relative flex h-screen flex-col">
+              <Navbar />
+              <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">
+                {children}
+              </main>
+              <footer className="flex w-full items-center justify-center py-3">
+                <Link
+                  className="flex items-center gap-1 text-current"
+                  href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
+                  title="nextui.org homepage"
+                >
+                  <span className="text-default-600">Powered by</span>
+                  <p className="text-primary">NextUI</p>
+                </Link>
+              </footer>
+            </div>
+          </AppkitContextProvider>
         </ThemeProvider>
       </body>
     </html>
