@@ -12,7 +12,6 @@ export default {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        gradient: "hsl(var(--gradient))",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -56,6 +55,10 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      backgroundImage: {
+        gradient:
+          "linear-gradient(0deg, rgba(0, 0, 0, 0.6), hsla(0, 0%, 6%, 0))",
       },
     },
   },

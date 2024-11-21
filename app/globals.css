@@ -10,7 +10,6 @@ body {
   :root {
     --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
-    --gradient: linear-gradient(0deg, rgba(0, 0, 0, 0.6), hsla(0, 0%, 6%, 0));
     --card: 0 0% 100%;
     --card-foreground: 20 14.3% 4.1%;
     --popover: 0 0% 100%;
@@ -39,8 +38,7 @@ body {
   .dark {
     --background: 20 23% 6%;
     --foreground: 60 9.1% 97.8%;
-    --gradient: linear-gradient(0deg, rgba(0, 0, 0, 0.6), hsla(0, 0%, 6%, 0));
-    --card: 20 23% 6%;
+    --card: 17 24% 8%;
     --card-foreground: 60 9.1% 97.8%;
     --popover: 20 23% 6%;
     --popover-foreground: 60 9.1% 97.8%;
