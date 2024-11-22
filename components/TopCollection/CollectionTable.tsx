@@ -17,11 +17,11 @@ const CollectionTable = ({ collections }: CollectionTableProps) => {
   return (
     <Table>
       <TableHeader className="[&_tr]:border-b-0">
-        <TableRow className="border-b-0">
+        <TableRow>
           <TableHead className="w-[2px]"></TableHead>
           <TableHead>Collection</TableHead>
           <TableHead>Floor Price</TableHead>
-          <TableHead>Volume</TableHead>
+          <TableHead align="right">Volume</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>

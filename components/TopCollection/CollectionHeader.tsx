@@ -13,13 +13,11 @@ const CollectionFilter = () => {
   ];
   const times = ["15m", "1h", "4h", "1d", "7d"];
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex flex-col space-y-5 md:space-y-0 md:flex-row md:items-center md:justify-between">
       <CollectionTabs tabs={tabs} />
-      <div className="flex gap-x-3">
+      <div className="flex gap-x-3 items-center">
         <TimeFilter times={times} />
-        <Button variant="outline">
-          View All
-        </Button>
+        <Button variant="outline">View All</Button>
       </div>
     </div>
   );
