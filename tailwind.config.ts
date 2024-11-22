@@ -56,6 +56,10 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        gradient:
+          "linear-gradient(0deg, rgba(0, 0, 0, 0.6), hsla(0, 0%, 6%, 0))",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

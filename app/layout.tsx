@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+
 import "./globals.css";
+import "./styles.css";
+import "swiper/css";
+import "swiper/css/pagination";
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+
 import { ThemeProvider } from "./theme-provider";
-import Link from "next/link";
 import AppkitContextProvider from "@/context/appkit";
 
+import Link from "next/link";
 import { headers } from "next/headers"; // added
 
 const geistSans = localFont({
@@ -43,7 +49,7 @@ export default function RootLayout({
           <AppkitContextProvider cookies={cookies}>
             <div className="relative flex h-screen flex-col">
               <Navbar />
-              <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">
+              <main className="container mx-auto max-w-[2560px] flex-grow px-6 pt-16">
                 {children}
               </main>
               <footer className="flex w-full items-center justify-center py-3">
