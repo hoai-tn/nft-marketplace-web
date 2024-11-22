@@ -8,63 +8,31 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import { Collection } from "@/types";
 
-const invoices = [
-  {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
-  },
-];
-const CollectionTable = () => {
+interface CollectionTableProps {
+  collections: Collection[];
+}
+const CollectionTable = ({ collections }: CollectionTableProps) => {
   return (
     <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[100px]">Invoice</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Method</TableHead>
-          <TableHead className="text-right">Amount</TableHead>
+      <TableHeader className="[&_tr]:border-b-0">
+        <TableRow className="border-b-0">
+          <TableHead className="w-[2px]"></TableHead>
+          <TableHead>Collection</TableHead>
+          <TableHead>Floor Price</TableHead>
+          <TableHead>Volume</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {invoices.map((invoice) => (
-          <TableRow key={invoice.invoice}>
-            <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+        {collections.map((collection, index) => (
+          <TableRow key={index} className="border-b-0 font-bold">
+            <TableCell className="font-normal text-muted-foreground">
+              {index + 1}
+            </TableCell>
+            <TableCell>{collection.name}</TableCell>
+            <TableCell>{collection.floor_price}</TableCell>
+            <TableCell>{collection.volume}</TableCell>
           </TableRow>
         ))}
       </TableBody>

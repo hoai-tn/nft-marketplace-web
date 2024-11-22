@@ -21,7 +21,7 @@ const CollectionTabs = ({ tabs }: CollectionTabsProps) => {
   const [currentTab, setCurrentTab] = useState(RankingType.Trending);
 
   return (
-    <div className="mt-5 flex gap-x-2">
+    <div className="flex gap-x-2">
       {
         // Map through the tabs
         tabs.map((tab) => (
