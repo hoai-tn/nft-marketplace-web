@@ -13,7 +13,7 @@ export default function HeaderSwiper() {
         pagination={{ clickable: true }}
         modules={[Pagination, Autoplay]}
         // modules={[Pagination]}
-        className="mySwiper mt-5"
+        className="mySwiper"
         spaceBetween={20}
         slidesPerView={1}
         autoplay={{
@@ -31,7 +31,7 @@ export default function HeaderSwiper() {
                 Element Pass Genesis is a growing NFT collection based on
                 product highlights, user capacity, and ecological expansion.
               </p>
-              <Button className="ml-auto mt-4 rounded-lg px-20 py-6 font-semibold text-foreground">
+              <Button className="ml-auto mt-4 rounded-lg px-20 py-6 font-semibold">
                 Buy
               </Button>
             </div>
