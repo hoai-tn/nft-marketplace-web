@@ -60,7 +60,9 @@ const MarketSignalSwiper = ({ collections }: MarketSignalSwiperProps) => {
       >
         {collectionChunks.map((chunk, chunkIndex) => (
           <SwiperSlide key={chunkIndex}>
-            <div className={`grid gap-x-4 grid-cols-${chunkSize}`}>
+            <div
+              className={`2xl:grid-cols-8 grid grid-cols-2 gap-x-4 md:grid-cols-4 xl:grid-cols-5`}
+            >
               {chunk.map((collection, index) => (
                 <div
                   key={index}
