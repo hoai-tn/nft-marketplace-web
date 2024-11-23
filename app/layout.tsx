@@ -5,6 +5,7 @@ import "./globals.css";
 import "./styles.css";
 import "swiper/css";
 import "swiper/css/pagination";
+import 'swiper/css/navigation';
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -52,7 +53,7 @@ export default function RootLayout({
               <main className="container mx-auto max-w-[2560px] flex-grow px-6 pt-16">
                 {children}
               </main>
-              {/* <footer className="flex w-full items-center justify-center py-3">
+              <footer className="flex w-full items-center justify-center py-3 mt-10">
                 <Link
                   className="flex items-center gap-1 text-current"
                   href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
@@ -61,7 +62,7 @@ export default function RootLayout({
                   <span className="text-default-600">Powered by</span>
                   <p className="text-primary">NextUI</p>
                 </Link>
-              </footer> */}
+              </footer>
             </div>
           </AppkitContextProvider>
         </ThemeProvider>

@@ -1,14 +1,17 @@
 import React from "react";
 import CollectionTable from "./CollectionTable";
 import CollectionFilter from "./CollectionHeader";
-import { collections } from "@/lib/mock";
+import { Collection } from "@/types";
 
-const CollectionList = () => {
+interface CollectionListProps {
+  collections: Collection[];
+}
+
+const CollectionList = ({ collections }: CollectionListProps) => {
   return (
     <section className="space-y-4">
       <h4 className="text-4xl font-bold">Real Time Data Tracking</h4>
       <CollectionFilter />
-
       <div className="hidden xl:flex xl:flex-row xl:gap-x-8">
         <CollectionTable collections={collections.slice(0, 5)} />
         <CollectionTable collections={collections.slice(5, 10)} />
@@ -19,7 +22,7 @@ const CollectionList = () => {
         <CollectionTable collections={collections.slice(5, 10)} />
       </div>
       <div className="block lg:hidden">
-        <CollectionTable collections={collections} />
+        <CollectionTable collections={collections.slice(0, 10)} />
       </div>
     </section>
   );

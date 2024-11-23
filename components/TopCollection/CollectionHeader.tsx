@@ -15,7 +15,7 @@ const CollectionFilter = () => {
   return (
     <div className="flex flex-col space-y-5 md:space-y-0 md:flex-row md:items-center md:justify-between">
       <CollectionTabs tabs={tabs} />
-      <div className="flex gap-x-3 items-center">
+      <div className="flex gap-x-3 items-center justify-between md:justify-normal">
         <TimeFilter times={times} />
         <Button variant="outline">View All</Button>
       </div>

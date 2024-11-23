@@ -13,7 +13,7 @@ export default function HeaderSwiper() {
         pagination={{ clickable: true }}
         modules={[Pagination, Autoplay]}
         // modules={[Pagination]}
-        className="mySwiper mt-5"
+        className="mySwiper"
         spaceBetween={20}
         slidesPerView={1}
         autoplay={{
