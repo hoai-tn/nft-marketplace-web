@@ -1,15 +1,13 @@
-import React from "react";
+import { Collection } from "@/types";
+import Image from "next/image";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "../ui/table";
-import { Collection } from "@/types";
-
 interface CollectionTableProps {
   collections: Collection[];
 }
@@ -20,8 +18,8 @@ const CollectionTable = ({ collections }: CollectionTableProps) => {
         <TableRow>
           <TableHead className="w-[2px]"></TableHead>
           <TableHead>Collection</TableHead>
-          <TableHead>Floor Price</TableHead>
-          <TableHead align="right">Volume</TableHead>
+          <TableHead className="w-24 px-0">Floor Price</TableHead>
+          <TableHead className="text-right">Volume</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -30,9 +28,23 @@ const CollectionTable = ({ collections }: CollectionTableProps) => {
             <TableCell className="font-normal text-muted-foreground">
               {index + 1}
             </TableCell>
-            <TableCell>{collection.name}</TableCell>
-            <TableCell>{collection.floor_price}</TableCell>
-            <TableCell>{collection.volume}</TableCell>
+            <TableCell className="flex items-center gap-x-2">
+              <img
+                src={collection.icon_url}
+                alt={collection.name}
+                width={40}
+                height={40}
+              />
+              <p>{collection.name}</p>
+              <Image
+                src="/icons/verify-collection.svg"
+                alt="Verify Collection"
+                width={20}
+                height={20}
+              />
+            </TableCell>
+            <TableCell className="text-center">{collection.floor_price}</TableCell>
+            <TableCell className="text-right">{collection.volume}</TableCell>
           </TableRow>
         ))}
       </TableBody>
